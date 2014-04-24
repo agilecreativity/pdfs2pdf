@@ -1,6 +1,6 @@
 ## Pdfs2Pdf
 
-[![Gem Version](https://badge.fury.io/rb/pdfs2pdf.svg)](http://badge.fury.io/rb/pdfs2pfs)
+[![Gem Version](https://badge.fury.io/rb/pdfs2pdf.svg)](http://badge.fury.io/rb/pdfs2pdf)
 
 Combine multiple PDF files into one file with simple bookmarks support.
 
