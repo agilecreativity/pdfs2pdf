@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require_relative '../lib/pdfs2pdf'
+include Pdfs2Pdf
+Pdfs2Pdf::CLI.start(ARGV)

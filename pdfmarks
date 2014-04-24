@@ -1,0 +1,8 @@
+[ /Title (My Sample Book)
+  /Author (Agile Creativity)
+  /Keywords (fun, witty, interesting)
+  /DOCINFO pdfmark
+[ /Page 1 /Title (demo1_xxx.rb.xhtml.pdf/demo1_xxx.rb.xhtml.pdf) /OUT pdfmark
+[ /Page 2 /Title (demo2_xxx.rb.xhtml.pdf/demo2_xxx.rb.xhtml.pdf) /OUT pdfmark
+[ /Page 3 /Title (demo3_xxx.rb.xhtml.pdf/sub_dir/demo3_xxx.rb.xhtml.pdf) /OUT pdfmark
+[ /Page 4 /Title (demo4_xxx.rb.xhtml.pdf/sub_dir/demo4_xxx.rb.xhtml.pdf) /OUT pdfmark

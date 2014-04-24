@@ -1,0 +1,10 @@
+require 'agile_utils'
+require 'vim_printer'
+require 'code_lister'
+require_relative 'pdfs2pdf/version'
+require_relative 'pdfs2pdf/cli'
+require_relative 'pdfs2pdf/utils'
+include AgileUtils::Options
+include CodeLister
+include Pdfs2Pdf
+include Pdfs2Pdf::Utils
