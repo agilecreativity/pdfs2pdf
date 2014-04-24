@@ -130,6 +130,10 @@ letters, numbers and/or underscore characters. Any other characters like
 
 ### Changelogs
 
+#### 0.0.2
+
+- Fix incorrect version badge
+
 #### 0.0.1
 
 - Initial release
