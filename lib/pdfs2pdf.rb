@@ -1,5 +1,4 @@
 require 'agile_utils'
-require 'vim_printer'
 require 'code_lister'
 require_relative 'pdfs2pdf/version'
 require_relative 'pdfs2pdf/cli'
