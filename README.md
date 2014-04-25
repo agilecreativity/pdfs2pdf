@@ -101,14 +101,14 @@ Options:
   -b, [--base-dir=BASE_DIR]                # Base directory
                                            # Default: . (current directory)
   -n, [--inc-words=one two three]          # List of words to be included in the result
-  -n, [--exc-words=one two three]          # List of words to be included in the result
+  -x, [--exc-words=one two three]          # List of words to be excluded from the result
   -i, [--ignore-case], [--no-ignore-case]  # Match case insensitively
                                            # Default: true
   -r, [--recursive], [--no-recursive]      # Search for files recursively
                                            # Default: true
   -v, [--version], [--no-version]          # Display version information
 
-Combine multiple pdf files into one file with bookmarks
+Combine multiple pdfs into one file with bookmarks
 ```
 
 To combine multiple pdfs just try something like
@@ -129,6 +129,10 @@ letters, numbers and/or underscore characters. Any other characters like
     'something-with-dash' before running the command.
 
 ### Changelogs
+
+#### 0.0.3
+
+- Update to [agile_utils][] which fix some minor bug
 
 #### 0.0.2
 
