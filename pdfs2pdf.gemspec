@@ -17,8 +17,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
   spec.add_runtime_dependency 'thor'
-  spec.add_runtime_dependency 'agile_utils', '~> 0.0.5'
-  spec.add_runtime_dependency 'code_lister', '~> 0.0.6'
+  spec.add_runtime_dependency 'agile_utils', '~> 0.0.8'
+  spec.add_runtime_dependency 'code_lister', '~> 0.0.7'
   spec.add_runtime_dependency 'pdf-reader', '~> 1.3.3'
   spec.add_development_dependency 'bundler', '~> 1.5'
   spec.add_development_dependency 'gem-ctags', '~> 1.0'

@@ -17,7 +17,8 @@ test/version_tmp
 tmp
 # ctags
 tags
-# generated file
+# Custom ignore list
 final_output.pdf
 output.tar.gz
 TODOs.md
+changelogs.txt

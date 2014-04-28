@@ -65,10 +65,3 @@ Combine multiple pdfs into one file with bookmarks
     end
   end
 end
-
-if __FILE__ == $PROGRAM_NAME
-  include Pdfs2Pdf
-  # TODO: make it work with File.expand_path('~/Dropbox/ebooks/')
-  #  File.expand_path('~') # => '/home/bchoomnuan'
-  #  File.expand_path('.') # => '/home/bchoomnuan/.../pdfs2pdf'
-end

@@ -130,6 +130,12 @@ letters, numbers and/or underscore characters. Any other characters like
 
 ### Changelogs
 
+#### 0.0.4
+
+- Remove unused codes
+- Update [agile_utils][] to 0.0.8
+- Update [code_lister][] to 0.0.7
+
 #### 0.0.3
 
 - Update to [agile_utils][] which fix some minor bug
