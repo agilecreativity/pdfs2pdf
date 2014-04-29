@@ -1,6 +1,8 @@
 ## Pdfs2Pdf
 
 [![Gem Version](https://badge.fury.io/rb/pdfs2pdf.svg)](http://badge.fury.io/rb/pdfs2pdf)
+[![Dependency Status](https://gemnasium.com/agilecreativity/pdfs2pdf.png)](https://gemnasium.com/agilecreativity/pdfs2pdf)
+[![Code Climate](https://codeclimate.com/github/agilecreativity/pdfs2pdf.png)](https://codeclimate.com/github/agilecreativity/pdfs2pdf)
 
 Combine multiple PDF files into one file with simple bookmarks support.
 
@@ -129,6 +131,11 @@ letters, numbers and/or underscore characters. Any other characters like
     'something-with-dash' before running the command.
 
 ### Changelogs
+
+#### 0.0.5
+
+- Update to latest dependencies
+- Add links to CodeClimate and Gemnasium
 
 #### 0.0.4
 
