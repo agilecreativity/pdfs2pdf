@@ -1,12 +1,13 @@
+# coding: utf-8
 require 'thor'
 require 'tmpdir'
 require 'fileutils'
 require_relative '../pdfs2pdf'
 require_relative './utils'
-
 module Pdfs2Pdf
   include AgileUtils::Options
   include CodeLister
+
   class CLI < Thor
     desc 'merge', 'Combine multiple pdfs into one file with bookmarks'
     method_option *AgileUtils::Options::BASE_DIR
@@ -58,7 +59,7 @@ Combine multiple pdfs into one file with bookmarks
 
     def merge_pdfs(pdf_files)
       elapsed = AgileUtils::FileUtil.time do
-        Pdfs2Pdf::Utils.merge_pdfs(pdf_files, 'pdfmarks', 'final_output.pdf')
+        Utils.merge_pdfs(pdf_files, 'pdfmarks', 'final_output.pdf')
       end
       puts "Combine pdf files took #{elapsed} ms"
       puts "Your combine pdf is available at #{File.absolute_path('final_output.pdf')}"

@@ -1,9 +1,11 @@
+# coding: utf-8
 require 'open3'
 require 'fileutils'
 require 'pdf-reader'
 require_relative '../pdfs2pdf'
+require_relative './configuration'
 module Pdfs2Pdf
-  module Utils
+  class Utils
     class << self
       # Create the 'pdfmarks' file for use with 'gs' utility
       #
@@ -12,7 +14,7 @@ module Pdfs2Pdf
       # @param [String] base_dir the base directory (TODO: review this code!)
       def create_pdfmarks(pdf_files, pdfmarks_file = 'pdfmarks', base_dir = Dir.pwd)
         File.open(pdfmarks_file, 'w') do |out_file|
-          out_file.write(title)
+          out_file.write(Pdfs2Pdf.configuration.pdfmarks_meta)
           current_page = 1
           pdf_files.each do |pdf_file|
             filename = if base_dir
@@ -22,36 +24,25 @@ module Pdfs2Pdf
                          pdf_file
                        end
             out_file.write "[ /Page #{current_page} /Title (#{filename}) /OUT pdfmark\n"
-            current_page += Pdfs2Pdf::Utils.page_count(pdf_file)
+            current_page += page_count(pdf_file)
           end
         end
       end
 
-      # Simple title for use in 'pdfmarks' file
-      #
-      # @todo allow the customization.
-      def title
-        <<-END.gsub(/^\s+\|/, '')
-          |[ /Title (My Sample Book)
-          |  /Author (Agile Creativity)
-          |  /Keywords (fun, witty, interesting)
-          |  /DOCINFO pdfmark
-        END
-      end
-
-      # Merge list of files using 'gs' command
+      # Merge/combine list of pdf files using Ghostscript's `gs` command
       #
       # @param [Array<String>] list input file list
       # @param [String] pdfmarks the pdfmarks file default to 'pdfmarks'
       # @param [String] output_file the output pdf file
       def merge_pdfs(list, pdfmarks = 'pdfmarks', output_file = 'output.pdf')
+        paper_size = Pdfs2Pdf.configuration.default_options[:paper_size]
         _stdin, _stderr, status = Open3.capture3(
           'gs',
           '-q',
           '-dNOPAUSE',
           '-dBATCH',
           '-sDEVICE=pdfwrite',
-          '-sPAPERSIZE=a4',
+          "-sPAPERSIZE=#{paper_size}",
           "-sOutputFile=#{output_file}",
           *list,
           pdfmarks)

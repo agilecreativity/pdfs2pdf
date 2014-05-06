@@ -130,31 +130,6 @@ letters, numbers and/or underscore characters. Any other characters like
   * Solution: try rename your folder to 'something_with_underscore' but not
     'something-with-dash' before running the command.
 
-### Changelogs
-
-#### 0.0.5
-
-- Update to latest dependencies
-- Add links to CodeClimate and Gemnasium
-
-#### 0.0.4
-
-- Remove unused codes
-- Update [agile_utils][] to 0.0.8
-- Update [code_lister][] to 0.0.7
-
-#### 0.0.3
-
-- Update to [agile_utils][] which fix some minor bug
-
-#### 0.0.2
-
-- Fix incorrect version badge
-
-#### 0.0.1
-
-- Initial release
-
 ### Contributing
 
 1. Fork it ( http://github.com/agilecreativity/pdfs2pdf/fork )
