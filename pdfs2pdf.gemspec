@@ -8,17 +8,25 @@ Gem::Specification.new do |spec|
   spec.version       = Pdfs2Pdf::VERSION
   spec.authors       = ['Burin Choomnuan']
   spec.email         = ['agilecreativity@gmail.com']
-  spec.summary       = %q{Combine multiple pdfs into one pdf with proper bookmarks for easy navigation}
-  spec.description   = %q{Combine multiple pdfs into a single file with bookmarks for easy navigation}
+  spec.summary       = %q(Combine multiple pdfs into one pdf with proper bookmarks for easy navigation)
+  spec.description   = %q(Combine multiple pdfs into a single file with bookmarks for easy navigation)
   spec.homepage      = 'https://github.com/agilecreativity/pdfs2pdf'
   spec.license       = 'MIT'
-  spec.files         = `git ls-files`.split($/)
+  spec.files         = Dir.glob('{bin,lib,config}/**/*') + %w(Gemfile
+                                                              Rakefile
+                                                              pdfs2pdf.gemspec
+                                                              README.md
+                                                              CHANGELOGS.md
+                                                              LICENSE
+                                                              .rubocop.yml
+                                                              .gitignore
+                                                              rubocop-todo.yml)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-  spec.require_paths = ["lib"]
+  spec.test_files    = Dir.glob('{test}/**/*')
+  spec.require_paths = ['lib']
   spec.add_runtime_dependency 'thor'
   spec.add_runtime_dependency 'agile_utils', '~> 0.0.9'
-  spec.add_runtime_dependency 'code_lister', '~> 0.0.8'
+  spec.add_runtime_dependency 'code_lister', '~> 0.0.9'
   spec.add_runtime_dependency 'pdf-reader', '~> 1.3.3'
   spec.add_development_dependency 'bundler', '~> 1.5'
   spec.add_development_dependency 'gem-ctags', '~> 1.0'

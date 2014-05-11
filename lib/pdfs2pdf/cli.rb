@@ -2,8 +2,8 @@
 require 'thor'
 require 'tmpdir'
 require 'fileutils'
+require_relative './pdfs2pdf'
 require_relative '../pdfs2pdf'
-require_relative './utils'
 module Pdfs2Pdf
   include AgileUtils::Options
   include CodeLister
@@ -11,9 +11,6 @@ module Pdfs2Pdf
   class CLI < Thor
     desc 'merge', 'Combine multiple pdfs into one file with bookmarks'
     method_option *AgileUtils::Options::BASE_DIR
-    method_option *AgileUtils::Options::INC_WORDS
-    method_option *AgileUtils::Options::EXC_WORDS
-    method_option *AgileUtils::Options::IGNORE_CASE
     method_option *AgileUtils::Options::RECURSIVE
     method_option *AgileUtils::Options::VERSION
 
@@ -34,10 +31,6 @@ Usage:
 Options:
   -b, [--base-dir=BASE_DIR]                # Base directory
                                            # Default: . (current directory)
-  -n, [--inc-words=one two three]          # List of words to be included in the result
-  -x, [--exc-words=one two three]          # List of words to be excluded from the result
-  -i, [--ignore-case], [--no-ignore-case]  # Match case insensitively
-                                           # Default: true
   -r, [--recursive], [--no-recursive]      # Search for files recursively
                                            # Default: true
   -v, [--version], [--no-version]          # Display version information
@@ -52,17 +45,17 @@ Combine multiple pdfs into one file with bookmarks
 
     def create_pdfmarks(page_list, base_dir)
       elapsed = AgileUtils::FileUtil.time do
-        Pdfs2Pdf::Utils.create_pdfmarks(page_list, 'pdfmarks', base_dir)
+        Pdfs2Pdf.create_pdfmarks(page_list, 'pdfmarks', base_dir)
       end
       puts "Create pdfmarks took #{elapsed} ms"
     end
 
     def merge_pdfs(pdf_files)
       elapsed = AgileUtils::FileUtil.time do
-        Utils.merge_pdfs(pdf_files, 'pdfmarks', 'final_output.pdf')
+        Pdfs2Pdf.merge_pdfs(pdf_files, 'pdfmarks', 'pdfs2pdf_output.pdf')
       end
       puts "Combine pdf files took #{elapsed} ms"
-      puts "Your combine pdf is available at #{File.absolute_path('final_output.pdf')}"
+      puts "Your combined pdf is available at #{File.absolute_path('pdfs2pdf_output.pdf')}"
     end
   end
 end

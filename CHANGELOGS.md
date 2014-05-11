@@ -1,5 +1,15 @@
 ### Changelogs
 
+#### 0.0.7
+
+- Simplify the api by removing some of the options
+  * --inc-words
+  * --exc-words
+  * --ignorecase
+- Rename 'utils.rb' to 'pdfs2pdf.rb'
+- Update gemspec
+- Misc cleanup
+
 #### 0.0.6
 
 - Allow options for wkhtmltopdf to be more customizable

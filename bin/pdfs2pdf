@@ -1,9 +1,6 @@
 #!/usr/bin/env ruby
 require_relative '../lib/pdfs2pdf'
-
-# The default configuration
 require_relative '../config/initializers/pdfs2pdf'
-Pdfs2Pdf.update_config()
-
+Pdfs2Pdf.update_config
 include Pdfs2Pdf
 Pdfs2Pdf::CLI.start(ARGV)
