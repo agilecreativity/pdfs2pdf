@@ -40,22 +40,14 @@ When you run the following command:
 
 ```
 gem install pdfs2pdf
-git clone https://github.com/agilecreativity/pdfs2pdf.git
-cd pdfs2pdf
-rbenv local 2.1.1 # if you use rbenv as your ruby manager
-rbenv rehash
 pdfs2pdf merge --base-dir ./test/fixtures/samples
 ```
 
 Will produce the result like the following
 
-- File: `final_output.pdf` (excepted screenshot)
+- File: `pdfs2pdf_output.pdf` (excepted screenshot)
 
 ![](https://github.com/agilecreativity/pdfs2pdf/raw/master/final_output.png)
-
-- File: `final_output.pdf` (actual pdf)
-
-![](https://github.com/agilecreativity/pdfs2pdf/raw/master/final_output.pdf)
 
 ### Requirements
 
@@ -112,7 +104,7 @@ To combine multiple pdfs just try something like
 pdfs2pdf merge --base-dir ./test/fixtures/samples
 ```
 This will merge all the pdf files from `test/fixtures/samples` and generate the
-`final_output.pdf` in the current directory.
+`pdfs2pdf_output.pdf` in the current directory.
 
 ### Known Issues
 
