@@ -1,5 +1,12 @@
 ### Changelogs
 
+#### 0.0.8
+
+- Add the 'gs_binary' to configurable options in `config/initializers/pdfs2pdf.rb`
+- Remove the 'gs_binary' from configurable options in `config/initializers/pdfs2pdf.rb`
+- Improve README.md
+- Add the missing 'awesome_print' from gemspec file
+
 #### 0.0.7
 
 - Simplify the api by removing some of the options

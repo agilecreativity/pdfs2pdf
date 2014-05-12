@@ -35,8 +35,9 @@ module Pdfs2Pdf
     # @param [String] output_file the output pdf file
     def merge_pdfs(list, pdfmarks = 'pdfmarks', output_file = 'output.pdf')
       paper_size = Pdfs2Pdf.configuration.default_options[:paper_size]
+      gs_binary  = Pdfs2Pdf.configuration.gs_binary
       _stdin, _stderr, status = Open3.capture3(
-        'gs',
+        gs_binary,
         '-q',
         '-dNOPAUSE',
         '-dBATCH',

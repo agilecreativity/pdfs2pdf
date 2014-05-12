@@ -6,7 +6,8 @@ module Pdfs2Pdf
     def update_config
       Pdfs2Pdf.configure do |config|
         # Note: add your custom config here
-        # config.wkhtmltopdf     = '/usr/bin/wkhtmltopdf'
+        # config.gs_binary = '/usr/bin/gs'
+        #
         # config.default_options = {
         #   paper_size: 'Letter',
         #   ..
