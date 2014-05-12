@@ -3,7 +3,7 @@ module Pdfs2Pdf
   class Configuration
     attr_accessor :default_options,
                   :pdfmarks_meta,
-                  :wkhtmltopdf
+                  :gs_binary
 
     def initialize
       # see: http://wkhtmltopdf.org/usage/wkhtmltopdf.txt
@@ -25,7 +25,7 @@ module Pdfs2Pdf
         |  /DOCINFO pdfmark
       END
 
-      @wkhtmltopdf = (defined?(Bundler::GemfileError) ? `bundle exec which wkhtmltopdf` : `which wkhtmltopdf`).chomp
+      @gs_binary = (defined?(Bundler::GemfileError) ? `bundle exec which gs` : `which gs`).chomp
     end
   end
 
@@ -39,7 +39,7 @@ module Pdfs2Pdf
     #
     # Pdfs2pdf.configure do |config|
     #   # set the path to wkhtmltopdf
-    #   config.wkhtmltopdf = '/usr/bin/wkhtmltopdf'
+    #   config.gs_binary = '/usr/bin/gs'
     # end
     def configuration
       @configuration ||= Configuration.new

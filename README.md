@@ -4,19 +4,9 @@
 [![Dependency Status](https://gemnasium.com/agilecreativity/pdfs2pdf.png)](https://gemnasium.com/agilecreativity/pdfs2pdf)
 [![Code Climate](https://codeclimate.com/github/agilecreativity/pdfs2pdf.png)](https://codeclimate.com/github/agilecreativity/pdfs2pdf)
 
-Combine multiple PDF files into one file with simple bookmarks support.
+Combine multiple PDF files into one file with simple bookmarks support using [Ghostscript][].
 
-The gem rely on the power of great opensource projects such as
-
-- [Ghostscript][] - for combining multiple pdf files
-- [Wkhtmltopdf][] - for converting file to PDF
-
-and it is built on top of my other gems
-
-- [agile_utils][] gem
-- [code_lister][] gem
-
-## What it does?
+### What it does?
 
 Says you have the follow pdf files (included inside the test fixtures)
 
@@ -65,12 +55,17 @@ Will produce the result like the following
 
 ![](https://github.com/agilecreativity/pdfs2pdf/raw/master/final_output.pdf)
 
-### Requirments
+### Requirements
 
 ### Mandatory Requirement
 
-- [Ghostscript][]
-- [Wkhtmltopdf][]
+[Ghostscript][]
+
+- Please follow the instruction [here](http://ghostscript.com/doc/current/Install.htm) for
+installation from source.
+
+- Alternatively, for Ubuntu you can try `sudo apt-get install ghostscript` and under OSX
+you can use [Homebrew](https://github.com/Homebrew/homebrew).
 
 ## Usage
 
@@ -135,6 +130,3 @@ letters, numbers and/or underscore characters. Any other characters like
 5. Create new Pull Request
 
 [Ghostscript]: http://www.ghostscript.com/
-[Wkhtmltopdf]: http://wkhtmltopdf.org/
-[agile_utils]: https://github.com/agilecreativity/agile_utils
-[code_lister]: https://github.com/agilecreativity/code_lister
