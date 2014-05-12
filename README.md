@@ -6,6 +6,8 @@
 
 Combine multiple PDF files into one file with simple bookmarks support using [Ghostscript][].
 
+Note: start from version `0.1.0` this gem will be released using [Semantic Versioning][] convention.
+
 ### What it does?
 
 Says you have the follow pdf files (included inside the test fixtures)
@@ -130,3 +132,4 @@ letters, numbers and/or underscore characters. Any other characters like
 5. Create new Pull Request
 
 [Ghostscript]: http://www.ghostscript.com/
+[Semantic Versioning]: http://semver.org
