@@ -18,7 +18,6 @@ tmp
 # ctags
 tags
 # Custom ignore list
-final_output.pdf
-output.tar.gz
-TODOs.md
-changelogs.txt
+.ruby-version
+pdfmarks
+pdfs2pdf_output.pdf

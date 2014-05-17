@@ -2,7 +2,11 @@
 
 #### 0.1.1
 
-- Improve the README.md to reflect recent changes
+- Simplify the CLI interface
+  * remove `--base-dir` as it must always be the current directory
+  * remove the intermediate command in the `bin/pdfs2pdf`
+- Cleanup the style with rubocop
+- Make `--version` work properly
 
 #### 0.1.0
 

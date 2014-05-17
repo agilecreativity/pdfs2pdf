@@ -1,16 +1,14 @@
-## Pdfs2Pdf
+## pdfs2pdf
 
 [![Gem Version](https://badge.fury.io/rb/pdfs2pdf.svg)](http://badge.fury.io/rb/pdfs2pdf)
 [![Dependency Status](https://gemnasium.com/agilecreativity/pdfs2pdf.png)](https://gemnasium.com/agilecreativity/pdfs2pdf)
 [![Code Climate](https://codeclimate.com/github/agilecreativity/pdfs2pdf.png)](https://codeclimate.com/github/agilecreativity/pdfs2pdf)
 
-Combine multiple PDF files into one file with simple bookmarks support using [Ghostscript][].
-
-Note: start from version `0.1.0` this gem will be released using [Semantic Versioning][] convention.
+Combine multiple PDF files into a single pdf file with simple bookmarks support using [Ghostscript][].
 
 ### What it does?
 
-Says you have the follow pdf files (included inside the test fixtures)
+Says you have the follow pdf files
 
 ```
 ./test/fixtures/samples/demo1_xxx.rb.xhtml.pdf
@@ -18,6 +16,7 @@ Says you have the follow pdf files (included inside the test fixtures)
 ./test/fixtures/samples/sub_dir/demo3_xxx.rb.xhtml.pdf
 ./test/fixtures/samples/sub_dir/demo4_xxx.rb.xhtml.pdf
 ```
+
 Which have the following content:
 
 - File: `./test/fixtures/samples/demo1_xxx.rb.xhtml.pdf`
@@ -40,7 +39,9 @@ When you run the following command:
 
 ```
 gem install pdfs2pdf
-pdfs2pdf merge --base-dir ./test/fixtures/samples
+# Note: must change to the root of the directory that we want to start from
+cd ./test/fixtures/samples
+pdfs2pdf --recursive
 ```
 
 Will produce the result like the following
@@ -61,38 +62,20 @@ installation from source.
 - Alternatively, for Ubuntu you can try `sudo apt-get install ghostscript` and under OSX
 you can use [Homebrew](https://github.com/Homebrew/homebrew).
 
-## Usage
+### Usage
 
 ```sh
 gem install pdfs2pdf
 ```
-For list of usage type
 
-```sh
-pdfs2pdf help
-```
-Which should give the following options
-
-```
-Commands:
-  pdfs2pdf help [COMMAND]  # Describe available commands or one specific command
-  pdfs2pdf merge           # Combine multiple pdfs into one file with bookmarks
-  pdfs2pdf usage           # Display usage information
-```
-
-Help on `merge` command just type `pdfs2pdf help merge`.
-
-Which should produce the following guide.
+### Usage/Synopsis:
 
 ```
 Usage:
-  pdfs2pdf merge [OPTIONS]
+  pdfs2pdf
 
 Options:
-  -b, [--base-dir=BASE_DIR]                # Base directory
-                                           # Default: . (current directory)
   -r, [--recursive], [--no-recursive]      # Search for files recursively
-                                           # Default: true
   -v, [--version], [--no-version]          # Display version information
 
 Combine multiple pdfs into one file with bookmarks
@@ -101,12 +84,18 @@ Combine multiple pdfs into one file with bookmarks
 To combine multiple pdfs just try something like
 
 ```
-pdfs2pdf merge --base-dir ./test/fixtures/samples
+cd ./test/fixtures/samples
+pdfs2pdf -r
 ```
+
 This will merge all the pdf files from `test/fixtures/samples` and generate the
-`pdfs2pdf_output.pdf` in the current directory.
+`pdfs2pdf_output.pdf`.
 
 ### Known Issues
+
+- The combined bookmarks sometime does not produce the correct links to page number.
+Currently I am not sure what the workaround is. I love to hear from you if
+know more about the 'pdfmarks' format and how it works with the bookmarks.
 
 - The directory that contains the pdf files must only contain the
 letters, numbers and/or underscore characters. Any other characters like

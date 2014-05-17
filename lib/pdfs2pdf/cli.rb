@@ -1,61 +1,61 @@
 # coding: utf-8
-require 'thor'
-require 'tmpdir'
-require 'fileutils'
-require_relative './pdfs2pdf'
-require_relative '../pdfs2pdf'
+require "thor"
+require "tmpdir"
+require "fileutils"
+require_relative "./pdfs2pdf"
+require_relative "../pdfs2pdf"
 module Pdfs2Pdf
   include AgileUtils::Options
   include CodeLister
-
   class CLI < Thor
-    desc 'merge', 'Combine multiple pdfs into one file with bookmarks'
-    method_option *AgileUtils::Options::BASE_DIR
+    desc "merge", "Combine multiple pdfs into one file with bookmarks"
+    # method_option *AgileUtils::Options::BASE_DIR
     method_option *AgileUtils::Options::RECURSIVE
     method_option *AgileUtils::Options::VERSION
 
     def merge
-      pdf_files = CodeLister.files base_dir: options[:base_dir],
-                                   exts: %w(pdf),
+      opts = options.symbolize_keys
+      if opts[:version]
+        puts "You are using Pdfs2Pdf version #{Pdfs2Pdf::VERSION}"
+        exit
+      end
+      base_dir = File.expand_path(Dir.pwd)
+      pdf_files = CodeLister.files base_dir:  base_dir,
+                                   exts:      %w[pdf],
                                    recursive: true
-      create_pdfmarks(pdf_files, options[:base_dir])
+      create_pdfmarks(pdf_files, base_dir)
       merge_pdfs(pdf_files)
     end
 
-    desc 'usage', 'Display usage information'
+    desc "usage", "Display usage information"
     def usage
       puts <<-EOT
 Usage:
-  pdfs2pdf merge [OPTIONS]
-
+  pdfs2pdf
 Options:
-  -b, [--base-dir=BASE_DIR]                # Base directory
-                                           # Default: . (current directory)
   -r, [--recursive], [--no-recursive]      # Search for files recursively
-                                           # Default: true
   -v, [--version], [--no-version]          # Display version information
-
 Combine multiple pdfs into one file with bookmarks
       EOT
     end
 
     default_task :usage
 
-    private
+  private
 
     def create_pdfmarks(page_list, base_dir)
       elapsed = AgileUtils::FileUtil.time do
-        Pdfs2Pdf.create_pdfmarks(page_list, 'pdfmarks', base_dir)
+        Pdfs2Pdf.create_pdfmarks(page_list, "pdfmarks", base_dir)
       end
       puts "Create pdfmarks took #{elapsed} ms"
     end
 
     def merge_pdfs(pdf_files)
       elapsed = AgileUtils::FileUtil.time do
-        Pdfs2Pdf.merge_pdfs(pdf_files, 'pdfmarks', 'pdfs2pdf_output.pdf')
+        Pdfs2Pdf.merge_pdfs(pdf_files, "pdfmarks", "pdfs2pdf_output.pdf")
       end
       puts "Combine pdf files took #{elapsed} ms"
-      puts "Your combined pdf is available at #{File.absolute_path('pdfs2pdf_output.pdf')}"
+      puts "Your combined pdf is available at #{File.absolute_path("pdfs2pdf_output.pdf")}"
     end
   end
 end
