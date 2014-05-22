@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Pdfs2Pdf::VERSION
   spec.authors       = ["Burin Choomnuan"]
   spec.email         = ["agilecreativity@gmail.com"]
-  spec.summary       = %q(Combine multiple pdfs into one pdf with proper bookmarks for easy navigation)
-  spec.description   = %q(Combine multiple pdfs into a single file with bookmarks for easy navigation)
+  spec.summary       = %q(Combine multiple pdf files into a single pdf with combined table of content for quick navigation)
+  spec.description   = %q(Combine multiple pdf files into a single file with combined table of content for quick navigation)
   spec.homepage      = "https://github.com/agilecreativity/pdfs2pdf"
   spec.license       = "MIT"
   spec.files         = Dir.glob("{bin,lib,config}/**/*") + %w[Gemfile

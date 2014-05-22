@@ -1,5 +1,11 @@
 ### Changelogs
 
+#### 0.1.2
+
+- Re-instate the `--base-dir` option and make relative path work correctly
+- Respect the `--recursive` option
+- Minor code cleanup
+
 #### 0.1.1
 
 - Simplify the CLI interface

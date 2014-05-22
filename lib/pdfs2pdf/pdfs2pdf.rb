@@ -12,12 +12,13 @@ module Pdfs2Pdf
     # @param [String] base_dir the base directory
     # def create_pdfmarks(pdf_files, pdfmarks_file = "pdfmarks", base_dir = Dir.pwd)
     def create_pdfmarks(pdf_files, pdfmarks_file = "pdfmarks", base_dir)
+      FileUtils.chdir(base_dir)
       File.open(pdfmarks_file, "w") do |out_file|
         out_file.write(Pdfs2Pdf.configuration.pdfmarks_meta)
         current_page = 1
         pdf_files.each do |pdf_file|
           out_file.write "[ /Page #{current_page} /Title (#{pdf_file}) /OUT pdfmark\n"
-          current_page += page_count(base_dir, pdf_file)
+          current_page += page_count(pdf_file)
         end
       end
     end
@@ -46,8 +47,8 @@ module Pdfs2Pdf
     # Extract pdf page count using pdf-reader
     #
     # @return [Fixnum] the page count of the given pdf file
-    def page_count(base_dir, pdf_file)
-      pdf_file = File.expand_path([base_dir, pdf_file].join("/"))
+    def page_count(pdf_file)
+      pdf_file = File.expand_path(pdf_file)
       File.open(pdf_file, "rb") do |io|
         reader = PDF::Reader.new(io)
         return reader.page_count

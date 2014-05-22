@@ -4,7 +4,7 @@
 [![Dependency Status](https://gemnasium.com/agilecreativity/pdfs2pdf.png)](https://gemnasium.com/agilecreativity/pdfs2pdf)
 [![Code Climate](https://codeclimate.com/github/agilecreativity/pdfs2pdf.png)](https://codeclimate.com/github/agilecreativity/pdfs2pdf)
 
-Combine multiple PDF files into a single pdf file with simple bookmarks support using [Ghostscript][].
+Combine multiple PDF files into a single pdf file with combine table of centent using [Ghostscript][].
 
 ### What it does?
 
@@ -39,7 +39,6 @@ When you run the following command:
 
 ```
 gem install pdfs2pdf
-# Note: must change to the root of the directory that we want to start from
 cd ./test/fixtures/samples
 pdfs2pdf --recursive
 ```
@@ -75,8 +74,11 @@ Usage:
   pdfs2pdf
 
 Options:
-  -r, [--recursive], [--no-recursive]      # Search for files recursively
-  -v, [--version], [--no-version]          # Display version information
+  -b, [--base-dir=BASE_DIR]            # Base directory
+                                       # Default: . (current directory)
+  -r, [--recursive], [--no-recursive]  # Search for files recursively
+                                       # Default: true
+  -v, [--version], [--no-version]      # Display version information
 
 Combine multiple pdfs into one file with bookmarks
 ```
