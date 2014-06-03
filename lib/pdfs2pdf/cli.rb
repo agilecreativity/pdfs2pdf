@@ -8,6 +8,7 @@ module Pdfs2Pdf
   include AgileUtils::Options
   include CodeLister
   class CLI < Thor
+    # rubocop:disable AmbiguousOperator
     desc "merge", "Combine multiple pdfs into one file with combined table of content"
     method_option *AgileUtils::Options::BASE_DIR
     method_option *AgileUtils::Options::RECURSIVE
@@ -23,8 +24,10 @@ module Pdfs2Pdf
                                    exts:      %w[pdf],
                                    recursive: opts[:recursive]
       create_pdfmarks(pdf_files, base_dir)
-      merge_pdfs(pdf_files)
+      output_file = "pdfs2pdf_#{File.basename(File.expand_path(base_dir))}.pdf"
+      merge_pdfs(pdf_files, output_file)
     end
+    # rubocop:enable All
 
     desc "usage", "Display usage information"
     def usage
@@ -56,13 +59,12 @@ Combine multiple pdfs into one file with combined table of content
       puts "Create pdfmarks took #{elapsed} ms"
     end
 
-    def merge_pdfs(pdf_files)
-      output_filename = "pdfs2pdf_output.pdf"
+    def merge_pdfs(pdf_files, output_file)
       elapsed = AgileUtils::FileUtil.time do
-        Pdfs2Pdf.merge_pdfs(pdf_files, "pdfmarks", output_filename)
+        Pdfs2Pdf.merge_pdfs(pdf_files, "pdfmarks", output_file)
       end
       puts "Combine pdf files took #{elapsed} ms"
-      puts "Your combined pdf is available at #{File.absolute_path(output_filename)}"
+      puts "Your combined pdf is available at #{File.absolute_path(output_file)}"
     end
   end
 end

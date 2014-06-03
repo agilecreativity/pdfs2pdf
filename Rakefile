@@ -17,7 +17,7 @@ task :pry do
 end
 require "rubocop/rake_task"
 desc "Run RuboCop on the lib directory"
-Rubocop::RakeTask.new(:rubocop) do |task|
+RuboCop::RakeTask.new(:rubocop) do |task|
   task.patterns = ["lib/**/*.rb"]
   # only show the files with failures
   task.formatters = ["files"]

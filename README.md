@@ -45,7 +45,7 @@ pdfs2pdf --recursive
 
 Will produce the result like the following
 
-- File: `pdfs2pdf_output.pdf` (excepted screenshot)
+- File: `pdfs2pdf_samples.pdf` (excepted screenshot)
 
 ![](https://github.com/agilecreativity/pdfs2pdf/raw/master/final_output.png)
 
@@ -91,7 +91,7 @@ pdfs2pdf -r
 ```
 
 This will merge all the pdf files from `test/fixtures/samples` and generate the
-`pdfs2pdf_output.pdf`.
+`pdfs2pdf_samples.pdf`.
 
 ### Known Issues
 

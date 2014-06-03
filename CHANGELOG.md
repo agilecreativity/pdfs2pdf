@@ -1,5 +1,11 @@
 ### Changelogs
 
+#### 0.1.3
+
+- Use `pdfs2pdf_<base_name>.pdf` as output file
+- Update `rubocop` to 0.23.x version
+- Update rubocop style rule in .rubocop.yml
+
 #### 0.1.2
 
 - Re-instate the `--base-dir` option and make relative path work correctly
