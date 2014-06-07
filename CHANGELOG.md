@@ -1,5 +1,11 @@
 ### Changelogs
 
+#### 0.2.0
+
+- Use refinement instead of monkeypatching core class
+- Update dependency gems to the latest version
+- Minor code cleanup
+
 #### 0.1.6
 
 - Make sure that the index file is the first item in the list for nicer output
