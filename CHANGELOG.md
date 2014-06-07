@@ -1,8 +1,14 @@
 ### Changelogs
 
+#### 0.1.5
+
+- Improve the README.md
+  * Update the limitation issue to reflect the bug fix in 0.1.4
+
 #### 0.1.4
 
 - Exclude the output file from the input list if any
+  * The input folder with '-' (dash) string should now work without any problem.
 
 #### 0.1.3
 

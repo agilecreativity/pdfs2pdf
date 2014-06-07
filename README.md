@@ -93,19 +93,6 @@ pdfs2pdf -r
 This will merge all the pdf files from `test/fixtures/samples` and generate the
 `pdfs2pdf_samples.pdf`.
 
-### Known Issues
-
-- The combined bookmarks sometime does not produce the correct links to page number.
-Currently I am not sure what the workaround is. I love to hear from you if
-know more about the 'pdfmarks' format and how it works with the bookmarks.
-
-- The directory that contains the pdf files must only contain the
-letters, numbers and/or underscore characters. Any other characters like
-`-` (dash) may caused the 'pdfmarks' file to produce incorrect bookmarks.
-
-  * Solution: try rename your folder to 'something_with_underscore' but not
-    'something-with-dash' before running the command.
-
 ### Contributing
 
 1. Fork it ( http://github.com/agilecreativity/pdfs2pdf/fork )
