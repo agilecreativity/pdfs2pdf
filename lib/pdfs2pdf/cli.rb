@@ -23,8 +23,10 @@ module Pdfs2Pdf
       pdf_files = CodeLister.files base_dir:  base_dir,
                                    exts:      %w[pdf],
                                    recursive: opts[:recursive]
-      create_pdfmarks(pdf_files, base_dir)
+      # Note: we remove the output file from the list of file here first if any
       output_file = "pdfs2pdf_#{File.basename(File.expand_path(base_dir))}.pdf"
+      pdf_files.delete_if { |file| file == "./#{output_file}" }
+      create_pdfmarks(pdf_files, base_dir)
       merge_pdfs(pdf_files, output_file)
     end
     # rubocop:enable All

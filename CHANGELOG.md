@@ -1,5 +1,9 @@
 ### Changelogs
 
+#### 0.1.4
+
+- Exclude the output file from the input list if any
+
 #### 0.1.3
 
 - Use `pdfs2pdf_<base_name>.pdf` as output file
