@@ -26,6 +26,10 @@ module Pdfs2Pdf
       # Note: we remove the output file from the list of file here first if any
       output_file = "pdfs2pdf_#{File.basename(File.expand_path(base_dir))}.pdf"
       pdf_files.delete_if { |file| file == "./#{output_file}" }
+
+      # We make sure that the index.html.pdf is the first element in the list if applicable
+      index_file = pdf_files.delete("./index.html.pdf")
+      pdf_files.unshift(index_file) if index_file
       create_pdfmarks(pdf_files, base_dir)
       merge_pdfs(pdf_files, output_file)
     end

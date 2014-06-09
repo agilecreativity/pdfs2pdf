@@ -1,5 +1,10 @@
 ### Changelogs
 
+#### 0.1.6
+
+- Make sure that the index file is the first item in the list for nicer output
+- Don't include the combined in the output file on subsequent run
+
 #### 0.1.5
 
 - Improve the README.md
