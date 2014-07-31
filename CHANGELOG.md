@@ -1,5 +1,9 @@
 ### Changelogs
 
+#### 0.2.1
+
+- Make ruby 2.1.0+ a mandatory
+
 #### 0.2.0
 
 - Use refinement instead of monkeypatching core class
