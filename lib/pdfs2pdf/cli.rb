@@ -7,8 +7,6 @@ module Pdfs2Pdf
   include AgileUtils::Options
   include CodeLister
   class CLI < Thor
-    using AgileUtils::HashExt
-
     # rubocop:disable AmbiguousOperator
     desc "merge", "Combine multiple pdfs into one file with combined table of content"
     method_option *AgileUtils::Options::BASE_DIR
@@ -57,7 +55,7 @@ Combine multiple pdfs into one file with combined table of content
 
     default_task :usage
 
-  private
+    private
 
     def create_pdfmarks(page_list, base_dir)
       elapsed = AgileUtils::FileUtil.time do
