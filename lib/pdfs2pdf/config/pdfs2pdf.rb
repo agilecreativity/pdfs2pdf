@@ -1,4 +1,3 @@
-# coding: utf-8
 module Pdfs2Pdf
   class << self
     # Customize the configuration for specific system (Ubuntu/OSX/etc)

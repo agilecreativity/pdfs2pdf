@@ -1,8 +1,15 @@
 require "agile_utils"
 require "code_lister"
-require_relative "pdfs2pdf/version"
-require_relative "pdfs2pdf/cli"
-require_relative "pdfs2pdf/pdfs2pdf"
-include AgileUtils::Options
-include CodeLister
+require "open3"
+require "fileutils"
+require "pdf-reader"
+require "pdfs2pdf/version"
+require "pdfs2pdf/cli"
+require "pdfs2pdf/configuration"
+require "pdfs2pdf/config/pdfs2pdf"
+require "pdfs2pdf/pdfs2pdf"
+require "thor"
+require "tmpdir"
+require "fileutils"
 include Pdfs2Pdf
+Pdfs2Pdf.update_config

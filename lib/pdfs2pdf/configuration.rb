@@ -7,13 +7,12 @@ module Pdfs2Pdf
     def initialize
       # see: http://wkhtmltopdf.org/usage/wkhtmltopdf.txt
       @default_options = {
-        paper_size: "A4", # 'Letter'
-        # Note: placeholder values, will be added in the up coming release!
-        margin_top: "0.75in",
-        margin_right: "0.75in",
+        paper_size:    "A4", # or 'Letter'
+        margin_top:    "0.75in",
+        margin_right:  "0.75in",
         margin_bottom: "0.75in",
-        margin_left: "0.75in",
-        encoding: "UTF-8"
+        margin_left:   "0.75in",
+        encoding:      "UTF-8"
       }
 
       # see: http://partners.adobe.com/public/developer/en/acrobat/sdk/pdf/pdf_creation_apis_and_specs/pdfmarkReference.pdf
@@ -30,7 +29,6 @@ module Pdfs2Pdf
 
   class << self
     attr_accessor :configuration
-
     # Configure Pdfs2Pdf someplace sensible, like
     # config/initializers/pdfs2pdf.rb
     #

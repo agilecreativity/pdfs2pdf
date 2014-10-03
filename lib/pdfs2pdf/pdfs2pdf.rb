@@ -1,8 +1,3 @@
-require "open3"
-require "fileutils"
-require "pdf-reader"
-require_relative "../pdfs2pdf"
-require_relative "./configuration"
 module Pdfs2Pdf
   class << self
     # Create the 'pdfmarks' file for use with 'gs' utility

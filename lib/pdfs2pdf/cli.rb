@@ -1,11 +1,4 @@
-require "thor"
-require "tmpdir"
-require "fileutils"
-require_relative "./pdfs2pdf"
-require_relative "../pdfs2pdf"
 module Pdfs2Pdf
-  include AgileUtils::Options
-  include CodeLister
   class CLI < Thor
     # rubocop:disable AmbiguousOperator
     desc "merge", "Combine multiple pdfs into one file with combined table of content"

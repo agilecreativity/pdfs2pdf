@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 require_relative "../lib/pdfs2pdf"
-require_relative "../config/initializers/pdfs2pdf"
 include Pdfs2Pdf
 if ARGV.empty?
   Pdfs2Pdf::CLI.start(%w[usage])
