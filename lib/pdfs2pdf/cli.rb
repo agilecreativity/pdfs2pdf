@@ -6,7 +6,7 @@ module Pdfs2Pdf
     method_option *AgileUtils::Options::RECURSIVE
     method_option *AgileUtils::Options::VERSION
     def merge
-      opts = options.symbolize_keys
+      opts = options.deep_symbolize_keys
       if opts[:version]
         puts "You are using Pdfs2Pdf version #{Pdfs2Pdf::VERSION}"
         exit
