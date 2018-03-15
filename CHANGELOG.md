@@ -1,5 +1,9 @@
 ### Changelogs
 
+#### 0.2.5
+
+- Update the gem's dependencies
+
 #### 0.2.4
 
 - Use optimistic versioning in gemspec
